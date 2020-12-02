@@ -23,8 +23,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void enanosNegros(){
-       Log.d("xd","pinche angel wey xd");
-    }
 
 }
