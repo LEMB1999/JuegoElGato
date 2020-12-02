@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String lui = "Peñejillo"; 
+        String angel = "a angel le gusta el sin hueso";
 
     }
 
