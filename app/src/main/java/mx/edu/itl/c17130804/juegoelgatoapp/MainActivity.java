@@ -8,6 +8,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 
 import android.view.Menu;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enanosNegros(){
-
+       Log.d("xd","pinche angel wey xd");
     }
 
 }
