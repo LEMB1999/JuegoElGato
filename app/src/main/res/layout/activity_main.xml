@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TableRow>
+      <ImageView
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          />
+        <view android:layout_height="2dip"
+            android:background="#FFFF"/>
+      <ImageView />
+        <view android:layout_height="2dip"
+            android:background="#FFFF"/>
+      <ImageView />
+    </TableRow>
+
+    <view
+        android:layout_height="2dip"
+        android:background="#FFFF" />
+        />
+
+    <TableRow>
+        <ImageView />
+        <view android:layout_height="2dip"
+            android:background="#FFFF"/>
+        <ImageView />
+        <view android:layout_height="2dip"
+            android:background="#FFFF"/>
+        <ImageView />
+    </TableRow>
+
+    <view android:layout_height="2dip"
+        android:background="#FFFF"/>
+
+    <TableRow>
+        <ImageView />
+        <view android:layout_height="2dip"
+            android:background="#FFFF"/>
+        <ImageView />
+        <view android:layout_height="2dip"
+            android:background="#FFFF"/>
+        <ImageView />
+    </TableRow>
+
+</TableLayout>
+
+
+
+
+
+
+
+
+
