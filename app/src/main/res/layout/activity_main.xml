@@ -29,6 +29,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="Turno:"
+                android:textColor="#FF6C33"
                 android:textSize="30sp" />
 
             <TextView
@@ -40,6 +41,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="Jugador 1 "
+                android:textColor="#FF6C33"
                 android:textSize="30sp" />
 
         </LinearLayout>
