@@ -1,6 +1,7 @@
 package mx.edu.itl.c17130804.juegoelgatoapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import com.bumptech.glide.Glide;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView text;
+    String nombrej1 = "Jugador 1" , nombrej2 = "Jugador 2";
     ArrayList<ImageView> arr ;
     int  ids[];
     ArrayList<Integer>  arr_valores ;
@@ -55,6 +57,19 @@ public class MainActivity extends AppCompatActivity {
         arr.add(findViewById(ids[7]));
         arr.add(findViewById(ids[8]));
 
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        turno = b.getInt( "select");
+        nombrej1 = b.getString("nombre1" );
+        nombrej2 = b.getString( "nombre2" );
+        if(nombrej1.isEmpty())
+            nombrej1 = "Jugador 1";
+        if(nombrej2.isEmpty())
+            nombrej2 = "Jugador 2";
+        if(turno == 0)
+            text.setText( nombrej1 );
+        if(turno == 1)
+            text.setText( nombrej2 );
     }
 
 
@@ -72,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
     public void cambiar_imagen(View view){
 
         if( turno == 0){
-            text.setText("jugador 2");
+            text.setText(nombrej2);
         }else{
-            text.setText("jugador 1");
+            text.setText(nombrej1);
         }
 
           actualiza_arreglo(view.getId(),turno);

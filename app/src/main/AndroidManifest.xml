@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.edu.itl.c17130804.juegoelgatoapp">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,20 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Menu" android:theme="@style/Theme.JuegoElGatoApp.NoActionBar" />
-        <activity android:name=".Splash" android:theme="@style/Theme.JuegoElGatoApp.NoActionBar" >
+        <activity android:name=".Personalizar"></activity>
+        <activity
+            android:name=".Menu"
+            android:theme="@style/Theme.JuegoElGatoApp.NoActionBar" />
+        <activity
+            android:name=".Splash"
+            android:theme="@style/Theme.JuegoElGatoApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
 </manifest>
