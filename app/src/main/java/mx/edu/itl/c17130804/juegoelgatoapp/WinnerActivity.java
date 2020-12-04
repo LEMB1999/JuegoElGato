@@ -15,6 +15,8 @@ public class WinnerActivity extends AppCompatActivity {
     String nombrej1="",nombrej2="",color="";
     int select;
     int imgganador;
+    String Alrato_la_quito ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
