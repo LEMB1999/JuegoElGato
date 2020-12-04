@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer>  arr_valores ;
     int turno = 0;
     int  num_turnos = 0;
-    int coordenadas [][] = { {0,1,2},{0,3,6},{2,5,8},{6,7,8},{0,4,8},{2,4,6}};
+    int coordenadas [][] = { {0,1,2},{0,3,6},{2,5,8},{6,7,8},{0,4,8},{2,4,6},{1,4,7},{3,4,5}};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean verificar_ganador(int jugador){
         Log.d("datos",arr_valores.toString());
         int acomulador;
-        for (int i = 0; i<6; i++){
+        for (int i = 0; i<8; i++){
             acomulador = 0;
             for (int j = 0; j < 3; j++){
                  if( jugador == arr_valores.get(coordenadas[i][j]) ){
