@@ -2,6 +2,7 @@ package mx.edu.itl.c17130804.juegoelgatoapp;
 
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import com.bumptech.glide.Glide;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView text;
-    String nombrej1 = "Jugador 1" , nombrej2 = "Jugador 2";
+    String nombrej1 = "Jugador 1" , nombrej2 = "Jugador 2" , color = "Rojo";
     ArrayList<ImageView> arr ;
     int  ids[];
     ArrayList<Integer>  arr_valores ;
     int turno = 0;
     int  num_turnos = 0;
     int coordenadas [][] = { {0,1,2},{0,3,6},{2,5,8},{6,7,8},{0,4,8},{2,4,6},{1,4,7},{3,4,5}};
+    int circulo, tacha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         turno = b.getInt( "select");
         nombrej1 = b.getString("nombre1" );
         nombrej2 = b.getString( "nombre2" );
+        color = b.getString( "color" );
         if(nombrej1.isEmpty())
             nombrej1 = "Jugador 1";
         if(nombrej2.isEmpty())
@@ -70,6 +73,22 @@ public class MainActivity extends AppCompatActivity {
             text.setText( nombrej1 );
         if(turno == 1)
             text.setText( nombrej2 );
+        if(color.equals("Rojo")) {
+            circulo = R.drawable.circulorojo;
+            tacha = R.drawable.tachanaranja;
+        }
+        if(color.equals("Naranja")) {
+            circulo = R.drawable.circulonaranja;
+            tacha = R.drawable.tacharojo;
+        }
+        if(color.equals("Verde")) {
+            circulo = R.drawable.circuloverde;
+            tacha = R.drawable.tacharazul;
+        }
+        if(color.equals("Azul")) {
+            circulo = R.drawable.circuloazul;
+            tacha = R.drawable.tacharverde;
+        }
     }
 
 
@@ -77,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
     public void  cambiar_imagen(int id, int turno){
         ImageView img = findViewById(id);
         if( turno == 0){
-            Glide.with(this).load(R.drawable.tacha).into(img);
+            Glide.with(this).load(tacha).into(img);
         }else{
-            Glide.with(this).load(R.drawable.circulo).into(img);
+            Glide.with(this).load(circulo).into(img);
         }
     }
 
