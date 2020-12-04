@@ -13,7 +13,7 @@ public class OpcionesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opciones);
     }
-
+    String commit;
     public void btnAcercaDeClick ( View v ){
         Intent intent = new Intent(OpcionesActivity.this, AcercaDeActivity.class);
         startActivity(intent);
