@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@color/cardview_dark_background"
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".MainActivity">
@@ -34,6 +34,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/hanalei_fill"
                 android:text="Tecnonlogico Nacional de Mexico"
                 android:textAlignment="center"
@@ -45,6 +46,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/hanalei_fill"
                 android:text="Tecnologico de La Laguna"
                 android:textAlignment="center"
@@ -59,7 +61,7 @@
                 android:fontFamily="@font/hanalei_fill"
                 android:text="Ingenieria en Sistemas Computacionales"
                 android:textAlignment="center"
-                android:textColor="#4A72F5"
+                android:textColor="@android:color/holo_orange_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -70,7 +72,7 @@
                 android:fontFamily="@font/hanalei_fill"
                 android:text="Desarrollo en Android"
                 android:textAlignment="center"
-                android:textColor="#DF5838"
+                android:textColor="@android:color/holo_orange_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -87,6 +89,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -95,8 +98,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/hanalei_fill"
+            android:gravity="center"
             android:text="Semestre Ago-Dic/2020"
-            android:textColor="#8c004b" />
+            android:textColor="#FF6C33" />
 
         <TextView
             android:id="@+id/textView6"
@@ -104,8 +108,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/hanalei_fill"
+            android:gravity="center"
             android:text="Grupo: 10 a 11 AM"
-            android:textColor="#8c004b" />
+            android:textColor="#FF6C33" />
     </LinearLayout>
 
     <LinearLayout
@@ -138,13 +143,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/hanalei_fill"
+            android:gravity="center"
             android:text="Alumno:"
-            android:textColor="#8c004b" />
+            android:textColor="#FF6C33"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/hanalei_fill"
             android:text="Luis Emanuel Mendez Barrios 17130804"
             android:textAlignment="center"
@@ -156,6 +164,7 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/hanalei_fill"
             android:text="Jose Angel Garcia Arce 17130786"
             android:textAlignment="center"
@@ -167,6 +176,7 @@
             android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/hanalei_fill"
             android:text="Kevil Saul Ramirez Romero 17131622"
             android:textAlignment="center"
@@ -178,6 +188,7 @@
             android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/hanalei_fill"
             android:text="Jose Baltazar martinez de la rosa 17130049"
             android:textAlignment="center"
@@ -189,6 +200,7 @@
             android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/hanalei_fill"
             android:text="Enrique Antonio Belmarez Meraz  17130765"
             android:textAlignment="center"
@@ -210,6 +222,7 @@
             android:fontFamily="@font/hanalei_fill"
             android:text="Torreon, Coah Diciembre de 2020"
             android:textAlignment="center"
+            android:textColor="#FF6C33"
             android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>
