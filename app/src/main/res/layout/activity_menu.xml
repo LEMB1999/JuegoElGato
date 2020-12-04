@@ -124,6 +124,7 @@
                 android:layout_height="50dp"
                 android:layout_weight=".80"
                 android:backgroundTint="#4A72F5"
+                android:onClick="btnOpcionesClick"
                 android:text="Opciones"
                 android:textSize="24sp" />
         </LinearLayout>

@@ -29,5 +29,11 @@ public class Menu extends AppCompatActivity {
         });
     }
 
+    public void btnOpcionesClick ( View v ){
+        Intent intent = new Intent(Menu.this, OpcionesActivity.class);
+        startActivity(intent);
+
+    }
+
 
 }
