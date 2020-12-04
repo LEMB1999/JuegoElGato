@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<ImageView> arr ;
     int  ids[];
     ArrayList<Integer>  arr_valores ;
-    int turno = 0;
+    int turno = 0 , aux ;
     int num_turnos = 0;
     int cells = 9;
     int coordenadas [][] = { {0,1,2},{0,3,6},{2,5,8},{6,7,8},{0,4,8},{2,4,6},{1,4,7},{3,4,5}};
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
-        turno = b.getInt( "select");
+        aux = turno = b.getInt( "select");
         nombrej1 = b.getString("nombre1" );
         nombrej2 = b.getString( "nombre2" );
         color = b.getString( "color" );
@@ -126,14 +126,30 @@ public class MainActivity extends AppCompatActivity {
           view.setEnabled(false);
 
           if(flag1){
-              Toast.makeText(this,"Gano el jugador 1",Toast.LENGTH_LONG).show();
+              Intent intent = new Intent( MainActivity.this , WinnerActivity.class );
+              intent.putExtra( "nombre" , nombrej1 );
+              intent.putExtra("imgganador", aux==0?tacha:circulo);
+              intent.putExtra("nombrej1" , nombrej1);
+              intent.putExtra( "nombrej2",nombrej2);
+              intent.putExtra("Select", aux);
+              intent.putExtra("color",color);
+              startActivity( intent );
+              //Toast.makeText(this,"Gano el jugador 1",Toast.LENGTH_LONG).show();
+              finish();
               desactivar_botones();
           }else if(flag2){
-              Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
+              Intent intent = new Intent( MainActivity.this , WinnerActivity.class );
+              intent.putExtra( "nombre" , nombrej2 );
+              intent.putExtra("imgganador", aux==1?tacha:circulo );
+              intent.putExtra("nombrej1" , nombrej1);
+              intent.putExtra( "nombrej2",nombrej2);
+              intent.putExtra("Select", aux);
+              intent.putExtra("color",color);
+              startActivity( intent );
+              //Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
+              finish();
               desactivar_botones();
-          }else{
-              Toast.makeText(this,"Empate",Toast.LENGTH_LONG).show();
-              desactivar_botones();
+
           }
 
 
