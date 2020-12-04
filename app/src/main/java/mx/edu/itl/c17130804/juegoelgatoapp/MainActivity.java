@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     int  ids[];
     ArrayList<Integer>  arr_valores ;
     int turno = 0;
-    int  num_turnos = 0;
+    int num_turnos = 0;
+    int cells = 9;
     int coordenadas [][] = { {0,1,2},{0,3,6},{2,5,8},{6,7,8},{0,4,8},{2,4,6},{1,4,7},{3,4,5}};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +112,11 @@ public class MainActivity extends AppCompatActivity {
           }else if(flag2){
               Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
               desactivar_botones();
+          }else{
+              Toast.makeText(this,"Empate",Toast.LENGTH_LONG).show();
+              desactivar_botones();
           }
+
 
     }
 
@@ -153,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return false;
+
     }
 
     public void desactivar_botones(){
