@@ -49,47 +49,20 @@ public class MainActivity extends AppCompatActivity {
         ids[6] = R.id.img7;
         ids[7] = R.id.img8;
         ids[8] = R.id.img9;
+        for (int i = 0; i < 9 ; i++) {
+            arr.add(findViewById(ids[i]));
+        }
+        //arr.add(findViewById(ids[0]));
+        //arr.add(findViewById(ids[1]));
+        //arr.add(findViewById(ids[2]));
+        //arr.add(findViewById(ids[3]));
+        //arr.add(findViewById(ids[4]));
+        //arr.add(findViewById(ids[5]));
+        //arr.add(findViewById(ids[6]));
+        //arr.add(findViewById(ids[7]));
+        //arr.add(findViewById(ids[8]));
+        personalizado();
 
-        arr.add(findViewById(ids[0]));
-        arr.add(findViewById(ids[1]));
-        arr.add(findViewById(ids[2]));
-        arr.add(findViewById(ids[3]));
-        arr.add(findViewById(ids[4]));
-        arr.add(findViewById(ids[5]));
-        arr.add(findViewById(ids[6]));
-        arr.add(findViewById(ids[7]));
-        arr.add(findViewById(ids[8]));
-
-        Intent intent = getIntent();
-        Bundle b = intent.getExtras();
-        aux = turno = b.getInt( "select");
-        nombrej1 = b.getString("nombre1" );
-        nombrej2 = b.getString( "nombre2" );
-        color = b.getString( "color" );
-        if(nombrej1.isEmpty())
-            nombrej1 = "Jugador 1";
-        if(nombrej2.isEmpty())
-            nombrej2 = "Jugador 2";
-        if(turno == 0)
-            text.setText( nombrej1 );
-        if(turno == 1)
-            text.setText( nombrej2 );
-        if(color.equals("Rojo")) {
-            circulo = R.drawable.circulorojo;
-            tacha = R.drawable.tachanaranja;
-        }
-        if(color.equals("Naranja")) {
-            circulo = R.drawable.circulonaranja;
-            tacha = R.drawable.tacharojo;
-        }
-        if(color.equals("Verde")) {
-            circulo = R.drawable.circuloverde;
-            tacha = R.drawable.tacharazul;
-        }
-        if(color.equals("Azul")) {
-            circulo = R.drawable.circuloazul;
-            tacha = R.drawable.tacharverde;
-        }
     }
 
 
@@ -203,6 +176,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void personalizado(){
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        aux = turno = b.getInt( "select");
+        nombrej1 = b.getString("nombre1" );
+        nombrej2 = b.getString( "nombre2" );
+        color = b.getString( "color" );
+        if(nombrej1.isEmpty())
+            nombrej1 = "Jugador 1";
+        if(nombrej2.isEmpty())
+            nombrej2 = "Jugador 2";
+        if(turno == 0)
+            text.setText( nombrej1 );
+        if(turno == 1)
+            text.setText( nombrej2 );
+        if(color.equals("Rojo")) {
+            circulo = R.drawable.circulorojo;
+            tacha = R.drawable.tachanaranja;
+        }
+        if(color.equals("Naranja")) {
+            circulo = R.drawable.circulonaranja;
+            tacha = R.drawable.tacharojo;
+        }
+        if(color.equals("Verde")) {
+            circulo = R.drawable.circuloverde;
+            tacha = R.drawable.tacharazul;
+        }
+        if(color.equals("Azul")) {
+            circulo = R.drawable.circuloazul;
+            tacha = R.drawable.tacharverde;
+        }
 
+    }
 
 }

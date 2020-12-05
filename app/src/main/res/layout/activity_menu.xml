@@ -68,6 +68,7 @@
                 android:layout_height="50dp"
                 android:layout_weight=".80"
                 android:backgroundTint="#4A72F5"
+                android:onClick="btnPlayClick"
                 android:text="Jugar"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -91,7 +92,7 @@
                 app:srcCompat="@drawable/multijugador" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnMulti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight=".80"

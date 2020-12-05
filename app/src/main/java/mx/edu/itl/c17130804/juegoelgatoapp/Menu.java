@@ -11,7 +11,8 @@ import android.widget.Button;
 
 public class Menu extends AppCompatActivity {
 
-    Button  btnPlay;
+    Button  btnMulti;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +20,8 @@ public class Menu extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_menu);
-        btnPlay = findViewById(R.id.btnPlay);
-        btnPlay.setOnClickListener(new View.OnClickListener() {
+        btnMulti = findViewById(R.id.btnMulti);
+        btnMulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Menu.this, Personalizar.class);
@@ -28,6 +29,12 @@ public class Menu extends AppCompatActivity {
             }
         });
     }
+
+    public void btnPlayClick ( View v ){
+        Intent intent = new Intent(Menu.this, UnJugadorActivity.class);
+        startActivity(intent);
+    }
+
 
     public void btnOpcionesClick ( View v ){
         Intent intent = new Intent(Menu.this, OpcionesActivity.class);
