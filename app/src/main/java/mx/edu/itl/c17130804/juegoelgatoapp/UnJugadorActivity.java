@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,9 +22,10 @@ public class UnJugadorActivity extends AppCompatActivity {
 
     TextView text;
     String nombrej1 = "Jugador 1" , nombrej2 = "CPU" , color = "Rojo";
-    ArrayList<ImageView> arr ;
+    ArrayList<ImageView> arr , arraux;
     int  ids[];
-    ArrayList<Integer>  arr_valores ;
+    ArrayList<Integer>  arr_valores;
+    View x;
     int turno = 0 , aux ;
     int num_turnos = 0;
     int cells = 9;
@@ -91,55 +93,24 @@ public class UnJugadorActivity extends AppCompatActivity {
         }
         //desactivar boton
         view.setEnabled(false);
+        ganador(flag1,flag2);
 
-        if(flag1){
-            Intent intent = new Intent( UnJugadorActivity.this , WinnerActivity.class );
-            intent.putExtra( "nombre" , nombrej1 );
-            intent.putExtra("imgganador", aux==0?tacha:circulo);
-            intent.putExtra("nombrej1" , nombrej1);
-            intent.putExtra( "nombrej2",nombrej2);
-            intent.putExtra("Select", aux);
-            intent.putExtra("color",color);
-            startActivity( intent );
-            //Toast.makeText(this,"Gano el jugador 1",Toast.LENGTH_LONG).show();
-            finish();
-            desactivar_botones();
-        }else if(flag2){
-            Intent intent = new Intent( UnJugadorActivity.this , WinnerActivity.class );
-            intent.putExtra( "nombre" , nombrej2 );
-            intent.putExtra("imgganador", aux==1?tacha:circulo );
-            intent.putExtra("nombrej1" , nombrej1);
-            intent.putExtra( "nombrej2",nombrej2);
-            intent.putExtra("Select", aux);
-            intent.putExtra("color",color);
-            startActivity( intent );
-            //Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
-            finish();
-            desactivar_botones();
+        Log.d("posicion:" ,""+r);
 
-        }
 
-        while(true){
-            r = azar.nextInt(9);
-            Log.d("posicion:" ,""+r);
-            if( arr.get(r).isEnabled()) {
-                CPU( r );
-                arr.get(r).setEnabled( false );
-                break;
-            }
-        }
-
+        disponibles();
+        CPU(x);
     }
 
-    public void CPU(int id ){
+    public void CPU(View view ){
         if( turno == 0){
             text.setText(nombrej2);
         }else{
             text.setText(nombrej1);
         }
 
-        actualiza_arreglo(ids[id],turno);
-        cambiar_imagen(ids[id],turno);
+        actualiza_arreglo(view.getId(),turno);
+        cambiar_imagen(view.getId(),turno);
         turno = turno == 0?1:0;
         boolean flag1 = false,flag2 = false;
         if (num_turnos>=4){
@@ -149,34 +120,8 @@ public class UnJugadorActivity extends AppCompatActivity {
             num_turnos++;
         }
         //desactivar boton
-        arr.get(id).setEnabled(false);
-
-        if(flag1){
-            Intent intent = new Intent( UnJugadorActivity.this , WinnerActivity.class );
-            intent.putExtra( "nombre" , nombrej1 );
-            intent.putExtra("imgganador", aux==0?tacha:circulo);
-            intent.putExtra("nombrej1" , nombrej1);
-            intent.putExtra( "nombrej2",nombrej2);
-            intent.putExtra("Select", aux);
-            intent.putExtra("color",color);
-            startActivity( intent );
-            //Toast.makeText(this,"Gano el jugador 1",Toast.LENGTH_LONG).show();
-            finish();
-            desactivar_botones();
-        }else if(flag2){
-            Intent intent = new Intent( UnJugadorActivity.this , WinnerActivity.class );
-            intent.putExtra( "nombre" , nombrej2 );
-            intent.putExtra("imgganador", aux==1?tacha:circulo );
-            intent.putExtra("nombrej1" , nombrej1);
-            intent.putExtra( "nombrej2",nombrej2);
-            intent.putExtra("Select", aux);
-            intent.putExtra("color",color);
-            startActivity( intent );
-            //Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
-            finish();
-            desactivar_botones();
-
-        }
+        view.setEnabled(false);
+        ganador(flag1,flag2);
 
     }
 
@@ -229,6 +174,53 @@ public class UnJugadorActivity extends AppCompatActivity {
         for( int i = 0; i<arr.size();i++){
             arr.get(i).setEnabled(false);
         }
+    }
+
+
+    public void disponibles(){
+        arraux = new ArrayList<>();
+        for (int i = 0; i < arr.size(); i++) {
+            if(arr.get(i).isEnabled())
+                arraux.add(arr.get(i));
+        }
+        if(!arraux.isEmpty()) {
+            r = azar.nextInt(arraux.size());
+            x = arraux.get(r);
+        }else{
+            //Toast.makeText(this ,"Queda 1", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void ganador ( boolean flag1 , boolean flag2 ){
+
+        if(flag1){
+            Intent intent = new Intent( UnJugadorActivity.this , WinnerActivityJ1.class );
+            intent.putExtra( "nombre" , nombrej1 );
+            intent.putExtra("imgganador", aux==0?tacha:circulo);
+            intent.putExtra("nombrej1" , nombrej1);
+            intent.putExtra( "nombrej2",nombrej2);
+            intent.putExtra("Select", aux);
+            intent.putExtra("color",color);
+            startActivity( intent );
+            //Toast.makeText(this,"Gano el jugador 1",Toast.LENGTH_LONG).show();
+            finish();
+            desactivar_botones();
+        }else if(flag2){
+            Intent intent = new Intent( UnJugadorActivity.this , WinnerActivityJ1.class );
+            intent.putExtra( "nombre" , nombrej2 );
+            intent.putExtra("imgganador", aux==1?tacha:circulo );
+            intent.putExtra("nombrej1" , nombrej1);
+            intent.putExtra( "nombrej2",nombrej2);
+            intent.putExtra("Select", aux);
+            intent.putExtra("color",color);
+            startActivity( intent );
+            //Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
+            finish();
+            desactivar_botones();
+
+        }
+
     }
 
 
