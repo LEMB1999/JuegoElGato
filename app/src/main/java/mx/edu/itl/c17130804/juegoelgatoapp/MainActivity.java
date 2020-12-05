@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer>  arr_valores ;
     int turno = 0 , aux ;
     int num_turnos = 0;
-    int cells = 9;
+    final int totalCells = 9;
     int coordenadas [][] = { {0,1,2},{0,3,6},{2,5,8},{6,7,8},{0,4,8},{2,4,6},{1,4,7},{3,4,5}};
     int circulo, tacha;
     @Override
@@ -78,52 +78,75 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void cambiar_imagen(View view){
-
+        int  acum = 8;
         if( turno == 0){
             text.setText(nombrej2);
+
         }else{
             text.setText(nombrej1);
         }
 
-          actualiza_arreglo(view.getId(),turno);
-          cambiar_imagen(view.getId(),turno);
-          turno = turno == 0?1:0;
-          boolean flag1 = false,flag2 = false;
-          if (num_turnos>=4){
-              flag1 = verificar_ganador(0);
-              flag2 = verificar_ganador(1);
-          }else{
-              num_turnos++;
-          }
-          //desactivar boton
-          view.setEnabled(false);
+            actualiza_arreglo(view.getId(), turno);
+            cambiar_imagen(view.getId(), turno);
+            turno = turno == 0 ? 1 : 0;
+            boolean flag1 = false, flag2 = false, flag3 = false;
 
-          if(flag1){
-              Intent intent = new Intent( MainActivity.this , WinnerActivity.class );
-              intent.putExtra( "nombre" , nombrej1 );
-              intent.putExtra("imgganador", aux==0?tacha:circulo);
-              intent.putExtra("nombrej1" , nombrej1);
-              intent.putExtra( "nombrej2",nombrej2);
-              intent.putExtra("Select", aux);
-              intent.putExtra("color",color);
-              startActivity( intent );
-              //Toast.makeText(this,"Gano el jugador 1",Toast.LENGTH_LONG).show();
-              finish();
-              desactivar_botones();
-          }else if(flag2){
-              Intent intent = new Intent( MainActivity.this , WinnerActivity.class );
-              intent.putExtra( "nombre" , nombrej2 );
-              intent.putExtra("imgganador", aux==1?tacha:circulo );
-              intent.putExtra("nombrej1" , nombrej1);
-              intent.putExtra( "nombrej2",nombrej2);
-              intent.putExtra("Select", aux);
-              intent.putExtra("color",color);
-              startActivity( intent );
-              //Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
-              finish();
-              desactivar_botones();
+            if(num_turnos == 8 ){
+                flag1 = verificar_ganador(0);
+                flag2 = verificar_ganador(1);
 
-          }
+                Intent intent = new Intent(MainActivity.this, DrawActivity.class);
+                intent.putExtra("nombrej1", nombrej1);
+                intent.putExtra("nombrej2", nombrej2);
+                intent.putExtra("Select", aux);
+                intent.putExtra("color", color);
+                startActivity(intent);
+                finish();
+            }else
+            if (num_turnos >= 4 ) {
+                flag1 = verificar_ganador(0);
+                flag2 = verificar_ganador(1);
+
+            }
+            num_turnos++;
+
+
+            //desactivar boton
+            view.setEnabled(false);
+
+            if (flag1) {
+                Intent intent = new Intent(MainActivity.this, WinnerActivity.class);
+                intent.putExtra("nombre", nombrej1);
+                intent.putExtra("imgganador", aux == 0 ? tacha : circulo);
+                intent.putExtra("nombrej1", nombrej1);
+                intent.putExtra("nombrej2", nombrej2);
+                intent.putExtra("Select", aux);
+                intent.putExtra("color", color);
+                startActivity(intent);
+                //Toast.makeText(this,"Gano el jugador 1",Toast.LENGTH_LONG).show();
+                finish();
+                desactivar_botones();
+            } else if (flag2) {
+                Intent intent = new Intent(MainActivity.this, WinnerActivity.class);
+                intent.putExtra("nombre", nombrej2);
+                intent.putExtra("imgganador", aux == 1 ? tacha : circulo);
+                intent.putExtra("nombrej1", nombrej1);
+                intent.putExtra("nombrej2", nombrej2);
+                intent.putExtra("Select", aux);
+                intent.putExtra("color", color);
+                startActivity(intent);
+                //Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
+                finish();
+                desactivar_botones();
+
+            }else if(flag3){
+                Intent intent = new Intent(MainActivity.this, DrawActivity.class);
+                startActivity(intent);
+                //Toast.makeText(this,"Gano el jugador 2",Toast.LENGTH_LONG).show();
+                finish();
+                desactivar_botones();
+            }
+
 
 
     }
@@ -153,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean verificar_ganador(int jugador){
         Log.d("datos",arr_valores.toString());
+        int cells = 8;
         int acomulador;
         for (int i = 0; i<8; i++){
             acomulador = 0;
@@ -160,12 +184,18 @@ public class MainActivity extends AppCompatActivity {
                  if( jugador == arr_valores.get(coordenadas[i][j]) ){
                      acomulador++;
                  }
+
             }
+
             if(acomulador == 3){
                 return true;
+
             }
+
+
         }
         return false;
+
 
     }
 
@@ -192,22 +222,25 @@ public class MainActivity extends AppCompatActivity {
         if(turno == 1)
             text.setText( nombrej2 );
         if(color.equals("Rojo")) {
-            circulo = R.drawable.circulorojo;
-            tacha = R.drawable.tachanaranja;
-        }
-        if(color.equals("Naranja")) {
             circulo = R.drawable.circulonaranja;
             tacha = R.drawable.tacharojo;
         }
-        if(color.equals("Verde")) {
-            circulo = R.drawable.circuloverde;
-            tacha = R.drawable.tacharazul;
+        if(color.equals("Naranja")) {
+            circulo = R.drawable.circulorojo;
+            tacha = R.drawable.tachanaranja;
         }
-        if(color.equals("Azul")) {
+        if(color.equals("Verde")) {
             circulo = R.drawable.circuloazul;
             tacha = R.drawable.tacharverde;
         }
+        if(color.equals("Azul")) {
+            circulo = R.drawable.circuloverde;
+            tacha = R.drawable.tacharazul;
+        }
 
     }
+
+
+
 
 }

@@ -37,8 +37,8 @@ public class UnJugadorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //inicializar atributos
-        circulo = R.drawable.tacharojo ;
-        tacha   = R.drawable.circulonaranja;
+        tacha = R.drawable.tacharojo ;
+        circulo   = R.drawable.circulonaranja;
         arr = new ArrayList<>(9);
         text = findViewById(R.id.txtJugador);
         arr_valores = new ArrayList<Integer>( Arrays.asList(-1,-1,-1,-1,-1,-1,-1,-1,-1));
@@ -85,12 +85,23 @@ public class UnJugadorActivity extends AppCompatActivity {
         cambiar_imagen(view.getId(),turno);
         turno = turno == 0?1:0;
         boolean flag1 = false,flag2 = false;
+        if(num_turnos == 8 ){
+            flag1 = verificar_ganador(0);
+            flag2 = verificar_ganador(1);
+            Intent intent = new Intent(UnJugadorActivity.this, DrawActivity2.class);
+            intent.putExtra("nombrej1", nombrej1);
+            intent.putExtra("nombrej2", nombrej2);
+            intent.putExtra("Select", aux);
+            intent.putExtra("color", color);
+            startActivity(intent);
+            finish();
+        }else
         if (num_turnos>=4){
             flag1 = verificar_ganador(0);
             flag2 = verificar_ganador(1);
-        }else{
-            num_turnos++;
         }
+            num_turnos++;
+
         //desactivar boton
         view.setEnabled(false);
         ganador(flag1,flag2);
@@ -113,12 +124,23 @@ public class UnJugadorActivity extends AppCompatActivity {
         cambiar_imagen(view.getId(),turno);
         turno = turno == 0?1:0;
         boolean flag1 = false,flag2 = false;
-        if (num_turnos>=4){
+        if(num_turnos == 8 ){
             flag1 = verificar_ganador(0);
             flag2 = verificar_ganador(1);
-        }else{
-            num_turnos++;
+            Intent intent = new Intent(UnJugadorActivity.this, DrawActivity2.class);
+            intent.putExtra("nombrej1", nombrej1);
+            intent.putExtra("nombrej2", nombrej2);
+            intent.putExtra("Select", aux);
+            intent.putExtra("color", color);
+            startActivity(intent);
+            finish();
+        }else
+        if (num_turnos >= 4){
+            flag1 = verificar_ganador(0);
+            flag2 = verificar_ganador(1);
         }
+            num_turnos++;
+
         //desactivar boton
         view.setEnabled(false);
         ganador(flag1,flag2);
@@ -222,6 +244,9 @@ public class UnJugadorActivity extends AppCompatActivity {
         }
 
     }
+
+
+
 
 
 
