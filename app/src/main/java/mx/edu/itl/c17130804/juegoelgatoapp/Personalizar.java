@@ -1,3 +1,24 @@
+/*------------------------------------------------------------------------------------------
+:*                         TECNOLOGICO NACIONAL DE MEXICO
+:*                       INSTITUTO TECNOLOGICO DE LA LAGUNA
+:*                     INGENIERIA EN SISTEMAS COMPUTACIONALES
+:*                             DESARROLLO EN ANDROID "A"
+:*
+:*                   SEMESTRE: AGO-DIC/2020    HORA: 2:25 HRS
+:*
+:*   Clase que nos permite personlizar el color de nuestra ficha asi como el nombre del jugador
+:*
+:*  Archivo     : Personalizar.java
+:*  Autor       : Maniacorp
+:*  Fecha       : 05/12/2020
+:*  Compilador  : Android Studio 4.0.1
+:*  Descripción : Clase utilizada para seleccionar el idioma y el acerca de
+:*  Ultima modif:
+:*  Fecha       Modificó                 Motivo
+:*==========================================================================================
+:*  05/12/2020  Jose Angel Garcia Arce   Documentar la aplicación
+:*------------------------------------------------------------------------------------------*/
+
 package mx.edu.itl.c17130804.juegoelgatoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +32,7 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+
 public class Personalizar extends AppCompatActivity {
 
     //declarar las referencias de los componentes
@@ -19,7 +41,8 @@ public class Personalizar extends AppCompatActivity {
         Spinner spnColores;
         int select = 0;
         ArrayList<String> As = new ArrayList<>();
-    @Override
+    //----------------------------------------------------------------------------------------------
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personalizar);
@@ -39,13 +62,12 @@ public class Personalizar extends AppCompatActivity {
 
     }
 
-
+    //-------------------------------------------------------------------------------------------------    //-------------------------------------------------------------------------------------------------
     public void btnplayclick ( View v ){
         if(rbntj1.isChecked())
             select = 0;
         else if (rbtnj2.isChecked())
             select = 1;
-
 
         Intent intent = new Intent( Personalizar.this , MainActivity.class );
         intent.putExtra("nombre1" , edtj1.getText().toString() );

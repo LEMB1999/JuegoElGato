@@ -1,3 +1,23 @@
+/*------------------------------------------------------------------------------------------
+:*                         TECNOLOGICO NACIONAL DE MEXICO
+:*                       INSTITUTO TECNOLOGICO DE LA LAGUNA
+:*                     INGENIERIA EN SISTEMAS COMPUTACIONALES
+:*                             DESARROLLO EN ANDROID "A"
+:*
+:*                   SEMESTRE: AGO-DIC/2020    HORA: 2:25 HRS
+:*
+:*   Clase utilizada mara mostrar un splash screen con animacion
+:*
+:*  Archivo     : Splash.java
+:*  Autor       : Maniacorp
+:*  Fecha       : 05/12/2020
+:*  Compilador  : Android Studio 4.0.1
+:*  Descripción : Clase para mostrar una splash screen
+:*  Ultima modif:
+:*  Fecha       Modificó                 Motivo
+:*==========================================================================================
+:*  05/12/2020  Jose Angel Garcia Arce   Documentar la aplicación
+:*------------------------------------------------------------------------------------------*/
 package mx.edu.itl.c17130804.juegoelgatoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +32,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Splash extends AppCompatActivity {
-
+    //-------------------------------------------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

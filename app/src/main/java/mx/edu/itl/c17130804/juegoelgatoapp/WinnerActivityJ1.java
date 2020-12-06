@@ -1,3 +1,23 @@
+/*------------------------------------------------------------------------------------------
+:*                         TECNOLOGICO NACIONAL DE MEXICO
+:*                       INSTITUTO TECNOLOGICO DE LA LAGUNA
+:*                     INGENIERIA EN SISTEMAS COMPUTACIONALES
+:*                             DESARROLLO EN ANDROID "A"
+:*
+:*                   SEMESTRE: AGO-DIC/2020    HORA: 2:25 HRS
+:*
+:*              Clase utilizada para mostrar la ventana de ganador en modo multiplayer
+
+:*  Archivo     : WinnerActivity.java
+:*  Autor       : Maniacorp
+:*  Fecha       : 05/12/2020
+:*  Compilador  : Android Studio 4.0.1
+:*  Descripción : Clase utilizada para mostrar la ventana de ganador en modo multiplayer
+:*  Ultima modif:
+:*  Fecha       Modificó                 Motivo
+:*==========================================================================================
+:*  05/12/2020  Jose Angel Garcia Arce   Documentar la aplicación
+:*------------------------------------------------------------------------------------------*/
 package mx.edu.itl.c17130804.juegoelgatoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +36,7 @@ public class WinnerActivityJ1 extends AppCompatActivity {
     int select;
     int imgganador;
     String Alrato_la_quito ;
-
+//-------------------------------------------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +55,7 @@ public class WinnerActivityJ1 extends AppCompatActivity {
         ganador.setText(nombre);
         img.setImageResource(imgganador);
     }
-
+    //----------------------------------------------------------------------------------------------
     public void btnrevanchaclick ( View v ){
         Intent intent = new Intent( WinnerActivityJ1.this , UnJugadorActivity.class );
         intent.putExtra("nombre1" , nombrej1 );
@@ -46,7 +66,7 @@ public class WinnerActivityJ1 extends AppCompatActivity {
         finish();
 
     }
-
+    //-----------------------------------------------------------------------------------------------
     public void btnmenuprincipalclick ( View v ){
         Intent intent = new Intent( WinnerActivityJ1.this , Menu.class );
         startActivity( intent );

@@ -1,3 +1,23 @@
+/*------------------------------------------------------------------------------------------
+:*                         TECNOLOGICO NACIONAL DE MEXICO
+:*                       INSTITUTO TECNOLOGICO DE LA LAGUNA
+:*                     INGENIERIA EN SISTEMAS COMPUTACIONALES
+:*                             DESARROLLO EN ANDROID "A"
+:*
+:*                   SEMESTRE: AGO-DIC/2020    HORA: 2:25 HRS
+:*
+:*              Clase utilizada para el modo 1 player
+
+:*  Archivo     : UnJugadorActivity.java
+:*  Autor       : Maniacorp
+:*  Fecha       : 05/12/2020
+:*  Compilador  : Android Studio 4.0.1
+:*  Descripción : Clase utilizada para crear el modo un jugador
+:*  Ultima modif:
+:*  Fecha       Modificó                 Motivo
+:*==========================================================================================
+:*  05/12/2020  Jose Angel Garcia Arce   Documentar la aplicación
+:*------------------------------------------------------------------------------------------*/
 package mx.edu.itl.c17130804.juegoelgatoapp;
 
 
@@ -32,10 +52,12 @@ public class UnJugadorActivity extends AppCompatActivity {
     int coordenadas [][] = { {0,1,2},{0,3,6},{2,5,8},{6,7,8},{0,4,8},{2,4,6},{1,4,7},{3,4,5}};
     int circulo , tacha, r;
     Random azar = new Random();
+    //----------------------------------------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //inicializar atributos
         tacha = R.drawable.tacharojo ;
         circulo   = R.drawable.circulonaranja;
@@ -61,7 +83,8 @@ public class UnJugadorActivity extends AppCompatActivity {
     }
 
 
-
+    //----------------------------------------------------------------------------------------------
+    //Metodo que se utiliza para el cambio de imagen medinte el Glide ya sea una X o un O
     public void  cambiar_imagen(int id, int turno){
         ImageView img = findViewById(id);
         if( turno == 0){
@@ -72,7 +95,8 @@ public class UnJugadorActivity extends AppCompatActivity {
         }
     }
 
-
+    //----------------------------------------------------------------------------------------------
+    //Metodo para cambiar de turno y a su vez realizar toda la funcion principal de la app
     public void cambiar_imagen(View view){
 
         if( turno == 0){
@@ -112,7 +136,8 @@ public class UnJugadorActivity extends AppCompatActivity {
         disponibles();
         CPU(x);
     }
-
+    //----------------------------------------------------------------------------------------------
+    //Metodo para hacer posible el jugar contra la computadora que
     public void CPU(View view ){
         if( turno == 0){
             text.setText(nombrej2);
@@ -150,7 +175,7 @@ public class UnJugadorActivity extends AppCompatActivity {
 
 
 
-
+    //----------------------------------------------------------------------------------------------
     public void actualiza_arreglo(int id,int turno){
         if( id == ids[0] ){
             arr_valores.set(0,turno);
@@ -173,7 +198,9 @@ public class UnJugadorActivity extends AppCompatActivity {
         }
     }
 
-
+    //----------------------------------------------------------------------------------------------
+    //Metodo para verificar ganador el cual checa si se cumplen las 3 posiciones adecuadas para la
+    //victria
     public boolean verificar_ganador(int jugador){
         Log.d("datos",arr_valores.toString());
         int acomulador;
@@ -191,14 +218,16 @@ public class UnJugadorActivity extends AppCompatActivity {
         return false;
 
     }
-
+    //----------------------------------------------------------------------------------------------
+    //Metodo para desactivar botones
     public void desactivar_botones(){
         for( int i = 0; i<arr.size();i++){
             arr.get(i).setEnabled(false);
         }
     }
 
-
+    //----------------------------------------------------------------------------------------------
+    //Metodo que checa los botonoes que aun estan disponibles y asi generar un numero aleatorio de los mismos
     public void disponibles(){
         arraux = new ArrayList<>();
         for (int i = 0; i < arr.size(); i++) {
@@ -213,7 +242,8 @@ public class UnJugadorActivity extends AppCompatActivity {
         }
 
     }
-
+    //----------------------------------------------------------------------------------------------
+    //Metodo que determina el ganador mediante las vanderas que utilizan el metodo verificar ganador
     public void ganador ( boolean flag1 , boolean flag2 ){
 
         if(flag1){

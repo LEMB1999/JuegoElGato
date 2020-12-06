@@ -1,3 +1,23 @@
+/*------------------------------------------------------------------------------------------
+:*                         TECNOLOGICO NACIONAL DE MEXICO
+:*                       INSTITUTO TECNOLOGICO DE LA LAGUNA
+:*                     INGENIERIA EN SISTEMAS COMPUTACIONALES
+:*                             DESARROLLO EN ANDROID "A"
+:*
+:*                   SEMESTRE: AGO-DIC/2020    HORA: 2:25 HRS
+:*
+:*            Clase utilizada para cuando existe un empate en modo de 1 player
+:*
+:*  Archivo     : MainActivity.java
+:*  Autor       : Maniacorp
+:*  Fecha       : 05/12/2020
+:*  Compilador  : Android Studio 4.0.1
+:*  Descripción : Clase utilizada para cuando existe un empate en modo de un player
+:*  Ultima modif:
+:*  Fecha       Modificó                 Motivo
+:*==========================================================================================
+:*  05/12/2020  Jose Angel Garcia Arce   Documentar la aplicación
+:*------------------------------------------------------------------------------------------*/
 package mx.edu.itl.c17130804.juegoelgatoapp;
 
 
@@ -21,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView text;
-    String nombrej1 = "Jugador 1" , nombrej2 = "Jugador 2" , color = "Rojo";
+    String nombrej1 = "Jugador 1" , nombrej2 = "Jugador 2" , color = "Rojo" ;
     ArrayList<ImageView> arr ;
     int  ids[];
     ArrayList<Integer>  arr_valores ;
@@ -184,19 +204,13 @@ public class MainActivity extends AppCompatActivity {
                  if( jugador == arr_valores.get(coordenadas[i][j]) ){
                      acomulador++;
                  }
-
             }
 
             if(acomulador == 3){
                 return true;
-
             }
-
-
         }
         return false;
-
-
     }
 
     public void desactivar_botones(){
